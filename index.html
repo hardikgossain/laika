@@ -133,7 +133,7 @@
         }
 
         /* Video Styling */
-        #youtube-video {
+        #google-drive-video {
             display: none;
             margin: 20px auto;
             width: 60%;
@@ -159,7 +159,7 @@
                 font-size: 1.2rem;
             }
 
-            #youtube-video {
+            #google-drive-video {
                 width: 90%;
             }
         }
@@ -178,9 +178,9 @@
         <p>You make my world brighter every day. Here's a little something special for you!</p>
         <button onclick="playVideo()">Play Video</button>
 
-        <!-- YouTube Video -->
-        <div id="youtube-video">
-            <iframe id="video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- Google Drive Video -->
+        <div id="google-drive-video">
+            <iframe id="video-frame" allow="autoplay" allowfullscreen></iframe>
         </div>
 
         <!-- Balloons -->
@@ -200,10 +200,10 @@
 
         function playVideo() {
             const videoFrame = document.getElementById('video-frame');
-            const videoDiv = document.getElementById('youtube-video');
+            const videoDiv = document.getElementById('google-drive-video');
 
-            // Set the YouTube video URL
-            videoFrame.src = "https://www.youtube.com/embed/jLM2E27rx-U?autoplay=1&rel=0&vq=hd1080";
+            // Set the Google Drive video URL for better quality (direct streaming)
+            videoFrame.src = "https://drive.google.com/file/d/1TQhHsGL4VZjwbibbF8zPSyhhIP37vsfk/preview";  // Replace YOUR_FILE_ID with the actual file ID
 
             // Display the video container
             videoDiv.style.display = 'block';
