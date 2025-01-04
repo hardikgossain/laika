@@ -150,6 +150,22 @@
             border-radius: 15px;
         }
 
+        /* Fullscreen Button */
+        #fullscreen-btn {
+            background-color: #fa5252;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: #ff6b6b;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             #birthday-page h1 {
@@ -181,6 +197,7 @@
         <!-- Google Drive Video -->
         <div id="google-drive-video">
             <iframe id="video-frame" allow="autoplay" allowfullscreen></iframe>
+            <button id="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
         </div>
 
         <!-- Balloons -->
@@ -207,6 +224,19 @@
 
             // Display the video container
             videoDiv.style.display = 'block';
+        }
+
+        function toggleFullscreen() {
+            const videoFrame = document.getElementById('video-frame');
+            if (videoFrame.requestFullscreen) {
+                videoFrame.requestFullscreen();
+            } else if (videoFrame.mozRequestFullScreen) { // Firefox
+                videoFrame.mozRequestFullScreen();
+            } else if (videoFrame.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                videoFrame.webkitRequestFullscreen();
+            } else if (videoFrame.msRequestFullscreen) { // IE/Edge
+                videoFrame.msRequestFullscreen();
+            }
         }
     </script>
 </body>
