@@ -132,40 +132,6 @@
             }
         }
 
-        /* Video Styling */
-        #google-drive-video {
-            display: none;
-            margin: 20px auto;
-            width: 60%;
-            max-width: 500px;
-            aspect-ratio: 1 / 1; /* Square video */
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 15px;
-        }
-
-        /* Fullscreen Button */
-        #fullscreen-btn {
-            background-color: #fa5252;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        #fullscreen-btn:hover {
-            background-color: #ff6b6b;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             #birthday-page h1 {
@@ -173,10 +139,6 @@
             }
             #birthday-page p {
                 font-size: 1.2rem;
-            }
-
-            #google-drive-video {
-                width: 90%;
             }
         }
     </style>
@@ -192,13 +154,7 @@
     <div id="birthday-page">
         <h1>Happy Birthday, Laika! 🎉</h1>
         <p>You make my world brighter every day. Here's a little something special for you!</p>
-        <button onclick="playVideo()">Play Video</button>
-
-        <!-- Google Drive Video -->
-        <div id="google-drive-video">
-            <iframe id="video-frame" allow="autoplay" allowfullscreen></iframe>
-            <button id="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
-        </div>
+        <button onclick="openVideoLink()">Play Video</button>
 
         <!-- Balloons -->
         <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
@@ -215,28 +171,9 @@
             document.getElementById('birthday-page').style.display = 'block';
         }
 
-        function playVideo() {
-            const videoFrame = document.getElementById('video-frame');
-            const videoDiv = document.getElementById('google-drive-video');
-
-            // Set the Google Drive video URL for better quality (direct streaming)
-            videoFrame.src = "https://drive.google.com/file/d/1TQhHsGL4VZjwbibbF8zPSyhhIP37vsfk/preview";  // Replace YOUR_FILE_ID with the actual file ID
-
-            // Display the video container
-            videoDiv.style.display = 'block';
-        }
-
-        function toggleFullscreen() {
-            const videoFrame = document.getElementById('video-frame');
-            if (videoFrame.requestFullscreen) {
-                videoFrame.requestFullscreen();
-            } else if (videoFrame.mozRequestFullScreen) { // Firefox
-                videoFrame.mozRequestFullScreen();
-            } else if (videoFrame.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                videoFrame.webkitRequestFullscreen();
-            } else if (videoFrame.msRequestFullscreen) { // IE/Edge
-                videoFrame.msRequestFullscreen();
-            }
+        function openVideoLink() {
+            // Replace with the actual video URL (Google Drive or any other video link)
+            window.open("https://drive.google.com/file/d/1TQhHsGL4VZjwbibbF8zPSyhhIP37vsfk/preview");  // Replace YOUR_FILE_ID with the actual file ID
         }
     </script>
 </body>
