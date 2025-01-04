@@ -133,7 +133,7 @@
         }
 
         /* Video Styling */
-        #birthday-video {
+        #youtube-video {
             display: none;
             margin: 20px auto;
             width: 60%;
@@ -141,6 +141,13 @@
             aspect-ratio: 1 / 1; /* Square video */
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
         }
 
         /* Responsive Design */
@@ -152,7 +159,7 @@
                 font-size: 1.2rem;
             }
 
-            #birthday-video {
+            #youtube-video {
                 width: 90%;
             }
         }
@@ -171,11 +178,10 @@
         <p>You make my world brighter every day. Here's a little something special for you!</p>
         <button onclick="playVideo()">Play Video</button>
 
-        <!-- Video -->
-        <video id="birthday-video" controls>
-            <source src="v1.0.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <!-- YouTube Video -->
+        <div id="youtube-video">
+            <iframe id="video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
 
         <!-- Balloons -->
         <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
@@ -193,9 +199,14 @@
         }
 
         function playVideo() {
-            const video = document.getElementById('birthday-video');
-            video.style.display = 'block';
-            video.play();
+            const videoFrame = document.getElementById('video-frame');
+            const videoDiv = document.getElementById('youtube-video');
+
+            // Set the YouTube video URL
+            videoFrame.src = "https://www.youtube.com/embed/jLM2E27rx-U?autoplay=1&rel=0&vq=hd1080";
+
+            // Display the video container
+            videoDiv.style.display = 'block';
         }
     </script>
 </body>
